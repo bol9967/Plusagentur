@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="stock_location_inherit_view" model="ir.ui.view">
+            <field name="name">sotck_location_inherit_view</field>
+            <field name="model">stock.location</field>
+            <field name="inherit_id" ref="stock.view_location_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[1]/group[1]" position="after">
+                    <group>
+                        <field name="is_magento_source"/>
+                        <field name="partner_id" attrs="{'invisible': [('is_magento_source', '=', False)], 'required': [('is_magento_source', '=', True)]}"/>
+                        <field name="country_id" attrs="{'invisible': [('is_magento_source', '=', False)], 'required': [('is_magento_source', '=', True)]}"/>
+                        <field name="post_code" attrs="{'invisible': [('is_magento_source', '=', False)], 'required': [('is_magento_source', '=', True)]}"/>
+                    </group>
+
+                </xpath>
+                <!--                <xpath expr="//field[@name='removal_strategy_id']" position="after">-->
+                <!--                    -->
+                <!--                </xpath>-->
+                <!--&lt;!&ndash;                <xpath expr="//field[@name='partner_id']" position="attributes">&ndash;&gt;-->
+                <!--&lt;!&ndash;                    <attribute name="required">1</attribute>&ndash;&gt;-->
+                <!--&lt;!&ndash;                </xpath>&ndash;&gt;-->
+                <!--                <xpath expr="//field[@name='country_id']" position="after">-->
+                <!--                    -->
+                <!--                </xpath>-->
+            </field>
+        </record>
+    </data>
+</odoo>

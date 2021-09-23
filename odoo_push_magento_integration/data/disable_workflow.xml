@@ -1,0 +1,5 @@
+<odoo>
+    <data noupdate="1">
+        <function model="res.partner" name="disable_invoice_automatic"/>
+    </data>
+</odoo>
